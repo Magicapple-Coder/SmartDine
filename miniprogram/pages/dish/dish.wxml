@@ -1,0 +1,33 @@
+<view class="container" wx:if="{{dish}}">
+  <view class="dish-hero">
+    <view class="hero-icon">🍲</view>
+  </view>
+
+  <view class="card">
+    <view class="dish-name">{{dish.name}}</view>
+    <view class="dish-price">¥{{dish.price}}</view>
+    <view class="tag mut" wx:if="{{dish.tags}}">{{dish.tags}}</view>
+    <view class="allergen" wx:if="{{dish.allergens}}">⚠️ 过敏原：{{dish.allergens}}</view>
+  </view>
+
+  <view class="card">
+    <view class="row-between">
+      <text class="field-label">数量</text>
+      <view class="stepper">
+        <button class="step-btn" size="mini" data-delta="-1" bindtap="onChangeQty">-</button>
+        <text class="qty">{{qty}}</text>
+        <button class="step-btn plus" size="mini" data-delta="1" bindtap="onChangeQty">+</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="field-label">备注</text>
+    <textarea class="note-input" placeholder="如：少辣、不要香菜" bindinput="onInputNote" value="{{note}}" />
+  </view>
+
+  <view class="fixed-bar">
+    <view class="bar-total">合计 <text class="bar-amount">¥{{totalPrice}}</text></view>
+    <button class="primary-btn add-btn" bindtap="addToCart">加入购物车</button>
+  </view>
+</view>

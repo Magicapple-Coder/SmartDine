@@ -1,0 +1,41 @@
+<view class="container">
+  <view wx:if="{{orders.length === 0}}" class="empty-state">
+    <text class="icon">🧾</text>
+    <text class="tip">暂无订单</text>
+    <button class="primary-btn" bindtap="goMenu">去点餐</button>
+  </view>
+
+  <view wx:for="{{orders}}" wx:key="order_id" class="card order-item">
+    <view class="row-between">
+      <text class="order-no">订单 #{{item.order_id}}</text>
+      <view class="status-tags">
+        <text class="tag {{item.payTagType}}">{{item.payStatusText}}</text>
+        <text class="tag mut">{{item.cookStatusText}}</text>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view wx:for="{{item.items}}" wx:for-item="dishItem" wx:key="item_id" class="dish-row">
+      <text class="dish-qty">x{{dishItem.qty}}</text>
+      <text class="dish-name">菜品 #{{dishItem.dish_id}}</text>
+      <text class="dish-sub">¥{{dishItem.subtotal}}</text>
+    </view>
+    <view class="row-between order-foot">
+      <text class="amount">合计 <text class="amount-val">{{item.amountText}}</text></text>
+      <button wx:if="{{item.cook_status === 2}}" class="review-btn" size="mini" data-id="{{item.order_id}}" bindtap="openReview">评价</button>
+    </view>
+  </view>
+
+  <view class="modal" wx:if="{{reviewVisible}}">
+    <view class="modal-content">
+      <view class="modal-title">订单评价</view>
+      <view class="score-row">
+        <text wx:for="{{[1,2,3,4,5]}}" wx:key="*this" data-score="{{item}}" bindtap="onScoreChange" class="star {{reviewScore >= item ? 'active' : ''}}">★</text>
+      </view>
+      <textarea class="review-input" placeholder="说说您的用餐体验" bindinput="onReviewInput" value="{{reviewContent}}" />
+      <view class="modal-actions">
+        <button class="ghost-btn" bindtap="closeReview">取消</button>
+        <button class="primary-btn" bindtap="submitReview">提交</button>
+      </view>
+    </view>
+  </view>
+</view>

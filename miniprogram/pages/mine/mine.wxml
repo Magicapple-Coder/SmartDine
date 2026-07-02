@@ -1,0 +1,48 @@
+<view class="container">
+  <view wx:if="{{!member}}" class="card bind-card">
+    <button class="avatar-picker" size="mini" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{avatarUrl}}" class="avatar-img" mode="aspectFill" src="{{avatarUrl}}" />
+      <text wx:else>👤</text>
+    </button>
+    <view class="title">登录 / 注册会员</view>
+    <view class="sub">点击头像、昵称框可直接取用微信资料，免去手动输入</view>
+    <input class="field-input" type="nickname" placeholder="昵称（点击可从微信选取）" bindinput="onInputName" value="{{name}}" />
+    <input class="field-input" type="number" placeholder="手机号" bindinput="onInputPhone" value="{{phone}}" />
+    <button class="primary-btn bind-btn" bindtap="bindPhone">登录 / 注册</button>
+  </view>
+
+  <view wx:else>
+    <view class="member-card">
+      <view class="row-between">
+        <view class="member-head">
+          <image wx:if="{{avatarUrl}}" class="member-avatar-img" mode="aspectFill" src="{{avatarUrl}}" />
+          <text wx:else class="member-avatar-fallback">👤</text>
+          <view class="member-name">{{member.name || member.phone}}</view>
+        </view>
+        <view class="level-tag">{{member.level}}</view>
+      </view>
+      <view class="member-phone">{{member.phone}}</view>
+      <view class="stat-row">
+        <view class="stat"><text class="stat-value">{{member.points}}</text><text class="stat-label">积分</text></view>
+        <view class="stat-sep"></view>
+        <view class="stat"><text class="stat-value">¥{{member.balance}}</text><text class="stat-label">储值余额</text></view>
+        <view class="stat-sep"></view>
+        <view class="stat"><text class="stat-value">{{member.visits}}</text><text class="stat-label">到店次数</text></view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="row-between">
+        <text class="field-label">口味偏好 / 忌口</text>
+        <text class="edit-link" bindtap="editPreferences" wx:if="{{!editingPreferences}}">编辑 ›</text>
+      </view>
+      <view wx:if="{{!editingPreferences}}" class="muted pref-text">{{member.preferences || '未填写'}}</view>
+      <view wx:else>
+        <textarea class="note-input" bindinput="onInputPreferences" value="{{preferences}}" placeholder="如：不吃辣、忌海鲜" />
+        <button class="primary-btn" bindtap="savePreferences">保存</button>
+      </view>
+    </view>
+
+    <view class="logout-btn" bindtap="logout">退出登录</view>
+  </view>
+</view>

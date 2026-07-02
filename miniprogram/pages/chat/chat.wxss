@@ -1,0 +1,6 @@
+.goto-menu {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 24rpx;
+  padding: 16rpx 0 24rpx;
+}

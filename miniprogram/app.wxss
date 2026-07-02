@@ -1,0 +1,323 @@
+page {
+  --ink: #211e1b;
+  --ink-2: #6b675f;
+  --ink-3: #9c978c;
+  --paper: #f4f2ec;
+  --surface: #ffffff;
+  --surface-2: #faf8f3;
+  --line: #eae6dd;
+  --line-2: #dfd9cd;
+  --brand: #e0613a;
+  --brand-d: #c24e2c;
+  --brand-soft: #fbeae2;
+  --c-order: #7c6fe0;
+  --c-order-soft: #efedfb;
+  --c-svc: #1fa37a;
+  --c-svc-soft: #e1f4ee;
+  --ok: #1fa37a;
+  --warn: #dd9020;
+  --bad: #d8503a;
+  --ok-s: #e1f4ee;
+  --warn-s: #faf0db;
+  --bad-s: #fbeae5;
+
+  background-color: var(--paper);
+  color: var(--ink);
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+view,
+text,
+button,
+input,
+textarea,
+scroll-view {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 24rpx;
+  padding-bottom: 180rpx;
+}
+
+/* ---------- 基础卡片 ---------- */
+.card {
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 4rpx rgba(33, 30, 27, 0.03), 0 8rpx 20rpx rgba(33, 30, 27, 0.05);
+}
+
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  color: var(--ink-3);
+  font-size: 24rpx;
+}
+
+/* ---------- 按钮 ---------- */
+.primary-btn {
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 6rpx 16rpx rgba(224, 97, 58, 0.3);
+}
+
+.primary-btn::after {
+  border: none;
+}
+
+.primary-btn[disabled] {
+  background: var(--brand);
+  opacity: 0.5;
+}
+
+.ghost-btn {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  border: 1rpx solid var(--line);
+  border-radius: 999rpx;
+  font-size: 26rpx;
+}
+
+.ghost-btn::after {
+  border: none;
+}
+
+/* ---------- 标签 ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.tag.ok {
+  background: var(--ok-s);
+  color: #0f6e56;
+}
+
+.tag.warn {
+  background: var(--warn-s);
+  color: #8a5a0c;
+}
+
+.tag.bad {
+  background: var(--bad-s);
+  color: #a8341f;
+}
+
+.tag.mut {
+  background: var(--surface-2);
+  color: var(--ink-3);
+  border: 1rpx solid var(--line);
+}
+
+/* ---------- 头像/缩略图圆形 ---------- */
+.avatar-circle {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+/* ---------- 计数步进器 ---------- */
+.stepper {
+  display: flex;
+  align-items: center;
+}
+
+.stepper .step-btn {
+  width: 56rpx;
+  height: 56rpx;
+  min-width: 0;
+  line-height: 56rpx;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1rpx solid var(--line);
+  color: var(--ink-2);
+  font-size: 30rpx;
+  padding: 0;
+  text-align: center;
+}
+
+.stepper .step-btn.plus {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.stepper .qty {
+  margin: 0 20rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  min-width: 32rpx;
+  text-align: center;
+}
+
+/* ---------- 空状态 ---------- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 160rpx;
+  color: var(--ink-3);
+}
+
+.empty-state .icon {
+  display: block;
+  width: 100%;
+  font-size: 88rpx;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20rpx;
+  opacity: 0.8;
+}
+
+.empty-state .tip {
+  display: block;
+  width: 100%;
+  font-size: 26rpx;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 28rpx;
+}
+
+/* ---------- 悬浮底部操作条 ---------- */
+.fixed-bar {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: var(--surface);
+  border-radius: 24rpx;
+  box-shadow: 0 12rpx 28rpx rgba(33, 30, 27, 0.14);
+  padding: 18rpx 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+/* ---------- 对话页通用 ---------- */
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 0;
+}
+
+.msg-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 16rpx;
+}
+
+.msg-row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 24rpx;
+}
+
+.msg-row.user {
+  justify-content: flex-end;
+}
+
+.msg-row .agent-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  flex-shrink: 0;
+}
+
+.bubble {
+  max-width: 68%;
+  padding: 18rpx 22rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  box-shadow: 0 2rpx 6rpx rgba(33, 30, 27, 0.04);
+}
+
+.msg-row.user .bubble {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-bottom-right-radius: 6rpx;
+}
+
+.msg-row.agent .bubble {
+  border-bottom-left-radius: 6rpx;
+}
+
+.msg-row.system {
+  justify-content: center;
+}
+
+.bubble.system {
+  background: var(--brand-soft);
+  color: var(--brand-d);
+  font-size: 24rpx;
+  border: none;
+  box-shadow: none;
+}
+
+.input-bar {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0 24rpx;
+  flex-shrink: 0;
+}
+
+.input-bar .input {
+  flex: 1;
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 999rpx;
+  padding: 16rpx 26rpx;
+  margin-right: 16rpx;
+  font-size: 27rpx;
+}
+
+.send-btn {
+  width: 76rpx;
+  height: 76rpx;
+  min-width: 0;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-size: 30rpx;
+  padding: 0;
+  line-height: 76rpx;
+  text-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 6rpx 14rpx rgba(224, 97, 58, 0.3);
+}
+
+.send-btn::after {
+  border: none;
+}

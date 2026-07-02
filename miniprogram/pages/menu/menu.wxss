@@ -1,0 +1,218 @@
+.page {
+  padding: 20rpx 20rpx 0;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-banner {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  background: var(--brand-soft);
+  color: var(--brand-d);
+  padding: 14rpx 22rpx;
+  border-radius: 999rpx;
+  margin-bottom: 16rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.table-banner .dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.chat-entry {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 20rpx;
+  padding: 18rpx 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 4rpx rgba(33, 30, 27, 0.03), 0 8rpx 20rpx rgba(33, 30, 27, 0.05);
+}
+
+.chat-entry-tx {
+  flex: 1;
+  margin-left: 18rpx;
+}
+
+.chat-entry-tx .title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.chat-entry-tx .sub {
+  font-size: 23rpx;
+  color: var(--ink-3);
+  margin-top: 4rpx;
+}
+
+.chat-entry .chevron {
+  color: var(--ink-3);
+  font-size: 32rpx;
+}
+
+.menu-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.category-list {
+  width: 176rpx;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.category-item {
+  padding: 26rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--ink-2);
+  position: relative;
+}
+
+.category-item.active {
+  background: var(--surface);
+  color: var(--brand);
+  font-weight: 700;
+  border-radius: 16rpx 0 0 16rpx;
+}
+
+.category-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 36rpx;
+  border-radius: 0 6rpx 6rpx 0;
+  background: var(--brand);
+}
+
+.dish-list {
+  flex: 1;
+  height: 100%;
+  padding: 0 0 140rpx 16rpx;
+}
+
+.dish-item {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 18rpx;
+  padding: 18rpx;
+  margin-bottom: 16rpx;
+  margin-right: 4rpx;
+}
+
+.dish-thumb {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 16rpx;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  flex-shrink: 0;
+}
+
+.dish-info {
+  flex: 1;
+  margin-left: 18rpx;
+  min-width: 0;
+}
+
+.dish-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.dish-tags {
+  margin-top: 4rpx;
+}
+
+.dish-price {
+  color: var(--brand);
+  font-weight: 600;
+  margin-top: 8rpx;
+  font-size: 27rpx;
+}
+
+.add-btn {
+  width: 64rpx;
+  height: 64rpx;
+  min-width: 0;
+  line-height: 64rpx;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  padding: 0;
+  font-size: 34rpx;
+  flex-shrink: 0;
+  box-shadow: 0 4rpx 10rpx rgba(224, 97, 58, 0.3);
+}
+
+.add-btn::after {
+  border: none;
+}
+
+.cart-bar {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: 24rpx;
+  background: var(--brand);
+  color: #fff;
+  padding: 22rpx 28rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 12rpx 28rpx rgba(224, 97, 58, 0.4);
+  z-index: 10;
+}
+
+.cart-bar-left {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+
+.cart-badge {
+  background: #fff;
+  color: var(--brand);
+  font-size: 22rpx;
+  font-weight: 700;
+  min-width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 12rpx;
+  padding: 0 4rpx;
+}
+
+.cart-label {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.cart-go {
+  font-size: 26rpx;
+  font-weight: 600;
+}

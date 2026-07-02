@@ -1,0 +1,4 @@
+.send-btn.svc {
+  background: var(--c-svc);
+  box-shadow: 0 6rpx 14rpx rgba(31, 163, 122, 0.3);
+}

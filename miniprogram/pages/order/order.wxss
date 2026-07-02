@@ -1,0 +1,133 @@
+.order-no {
+  font-weight: 700;
+  font-size: 27rpx;
+}
+
+.status-tags {
+  display: flex;
+  gap: 8rpx;
+}
+
+.divider {
+  height: 1rpx;
+  background: var(--line);
+  margin: 16rpx 0;
+}
+
+.dish-row {
+  display: flex;
+  align-items: center;
+  margin: 6rpx 0;
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.dish-qty {
+  color: var(--brand);
+  font-weight: 600;
+  margin-right: 12rpx;
+  width: 56rpx;
+}
+
+.dish-name {
+  flex: 1;
+}
+
+.dish-sub {
+  color: var(--ink-3);
+}
+
+.order-foot {
+  margin-top: 16rpx;
+}
+
+.amount {
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.amount-val {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--ink);
+  margin-left: 4rpx;
+}
+
+.review-btn {
+  background: var(--brand-soft);
+  color: var(--brand-d);
+  font-size: 23rpx;
+  border-radius: 999rpx;
+  border: none;
+  line-height: 2;
+}
+
+.review-btn::after {
+  border: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(33, 30, 27, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: var(--surface);
+  width: 80%;
+  border-radius: 24rpx;
+  padding: 36rpx;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 28rpx;
+  margin-bottom: 24rpx;
+  text-align: center;
+}
+
+.score-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+
+.star {
+  font-size: 56rpx;
+  color: var(--line-2, #dfd9cd);
+  margin: 0 8rpx;
+}
+
+.star.active {
+  color: var(--warn);
+}
+
+.review-input {
+  width: 100%;
+  height: 140rpx;
+  background: var(--surface-2);
+  border: 1rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 16rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24rpx;
+  gap: 16rpx;
+}
+
+.modal-actions button {
+  margin: 0;
+  padding: 0 32rpx;
+}

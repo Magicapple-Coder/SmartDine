@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="table-banner" wx:if="{{tableId}}">
+    <text class="dot"></text>
+    <text>当前桌台 · {{tableId}} 号</text>
+  </view>
+
+  <view class="chat-entry" bindtap="goChat">
+    <view class="avatar-circle" style="background: var(--c-order-soft); color: var(--c-order)">🤖</view>
+    <view class="chat-entry-tx">
+      <view class="title">不知道吃什么？</view>
+      <view class="sub">试试对话点餐推荐</view>
+    </view>
+    <text class="chevron">›</text>
+  </view>
+
+  <view class="menu-body">
+    <scroll-view class="category-list" scroll-y>
+      <view
+        wx:for="{{categories}}"
+        wx:key="*this"
+        class="category-item {{activeCategory === item ? 'active' : ''}}"
+        data-category="{{item}}"
+        bindtap="onSwitchCategory"
+      >
+        {{item}}
+      </view>
+    </scroll-view>
+
+    <scroll-view class="dish-list" scroll-y>
+      <view
+        wx:for="{{dishes}}"
+        wx:key="dish_id"
+        wx:if="{{item.category === activeCategory}}"
+        class="dish-item"
+        data-id="{{item.dish_id}}"
+        bindtap="onTapDish"
+      >
+        <view class="dish-thumb">🍽</view>
+        <view class="dish-info">
+          <view class="dish-name">{{item.name}}</view>
+          <view class="muted dish-tags" wx:if="{{item.tags}}">{{item.tags}}</view>
+          <view class="dish-price">¥{{item.price}}</view>
+        </view>
+        <button class="add-btn" size="mini" catchtap="onQuickAdd" data-dish="{{item}}">+</button>
+      </view>
+      <view wx:if="{{dishes.length === 0}}" class="empty-state">
+        <text class="icon">🍳</text>
+        <text class="tip">暂无在售菜品</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="cart-bar" bindtap="goCart" wx:if="{{cartCount > 0}}">
+    <view class="cart-bar-left">
+      <text class="cart-icon">🛒</text>
+      <text class="cart-badge">{{cartCount}}</text>
+      <text class="cart-label">购物车</text>
+    </view>
+    <text class="cart-go">去结算 ›</text>
+  </view>
+</view>

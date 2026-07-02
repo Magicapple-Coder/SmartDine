@@ -1,0 +1,14 @@
+<view class="chat-page">
+  <scroll-view class="msg-list" scroll-y scroll-into-view="bottom">
+    <view wx:for="{{messages}}" wx:key="index" class="msg-row {{item.role}}">
+      <view class="agent-avatar" style="background: var(--c-svc-soft); color: var(--c-svc)" wx:if="{{item.role === 'agent'}}">🎧</view>
+      <view class="bubble {{item.role}}">{{item.text}}</view>
+    </view>
+    <view id="bottom"></view>
+  </scroll-view>
+
+  <view class="input-bar">
+    <input class="input" value="{{input}}" placeholder="请描述您的问题..." bindinput="onInput" confirm-type="send" bindconfirm="send" />
+    <button class="send-btn svc" size="mini" loading="{{loading}}" bindtap="send">➤</button>
+  </view>
+</view>

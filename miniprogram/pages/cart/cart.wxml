@@ -1,0 +1,27 @@
+<view class="container">
+  <view wx:if="{{cart.length === 0}}" class="empty-state">
+    <text class="icon">🛒</text>
+    <text class="tip">购物车空空如也，去看看菜单吧～</text>
+    <button class="primary-btn" bindtap="goMenu">去点餐</button>
+  </view>
+
+  <view wx:for="{{cart}}" wx:key="dish_id" class="card cart-item">
+    <view class="item-thumb">🍽</view>
+    <view class="item-info">
+      <view class="item-name">{{item.name}}</view>
+      <view class="muted" wx:if="{{item.note}}">备注：{{item.note}}</view>
+      <view class="item-price">¥{{item.price}}</view>
+    </view>
+    <view class="stepper">
+      <button class="step-btn" size="mini" data-id="{{item.dish_id}}" data-delta="-1" bindtap="onChangeQty">-</button>
+      <text class="qty">{{item.qty}}</text>
+      <button class="step-btn plus" size="mini" data-id="{{item.dish_id}}" data-delta="1" bindtap="onChangeQty">+</button>
+    </view>
+    <text class="remove" data-id="{{item.dish_id}}" bindtap="onRemove">删除</text>
+  </view>
+
+  <view class="fixed-bar" wx:if="{{cart.length > 0}}">
+    <view class="bar-total">合计 <text class="bar-amount">¥{{total}}</text></view>
+    <button class="primary-btn submit-btn" loading="{{submitting}}" bindtap="submitOrder">提交订单</button>
+  </view>
+</view>

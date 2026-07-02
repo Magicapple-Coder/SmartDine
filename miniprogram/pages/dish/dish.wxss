@@ -1,0 +1,66 @@
+.dish-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(135deg, var(--brand-soft), var(--surface-2));
+  margin-bottom: 20rpx;
+}
+
+.hero-icon {
+  font-size: 120rpx;
+}
+
+.dish-name {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.dish-price {
+  color: var(--brand);
+  font-size: 32rpx;
+  font-weight: 700;
+  margin: 14rpx 0;
+}
+
+.allergen {
+  color: var(--warn);
+  font-size: 24rpx;
+  margin-top: 12rpx;
+}
+
+.field-label {
+  font-size: 27rpx;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.note-input {
+  width: 100%;
+  margin-top: 16rpx;
+  height: 140rpx;
+  background: var(--surface-2);
+  border: 1rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 16rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+
+.bar-total {
+  font-size: 26rpx;
+  color: var(--ink-2);
+}
+
+.bar-amount {
+  color: var(--brand);
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-left: 6rpx;
+}
+
+.add-btn {
+  width: 280rpx;
+  margin: 0;
+}
