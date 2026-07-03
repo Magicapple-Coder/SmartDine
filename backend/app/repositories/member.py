@@ -79,8 +79,31 @@ def update_member(db: Session, member: Member, **kwargs) -> Member:
     return member
 
 
-def adjust_points(db: Session, member: Member, delta: int) -> Member:
-    member.points = member.points + delta
+def get_or_create_member_merchant(db: Session, member_id: int, merchant_id: int) -> MemberMerchant:
+    """获取当前商户下的会员档案，不存在则自动创建（默认等级=普通）"""
+    mm = db.query(MemberMerchant).filter(
+        MemberMerchant.member_id == member_id,
+        MemberMerchant.merchant_id == merchant_id,
+    ).first()
+    if mm is None:
+        mm = MemberMerchant(member_id=member_id, merchant_id=merchant_id)
+        db.add(mm)
+        db.commit()
+        db.refresh(mm)
+    return mm
+
+
+def adjust_points(db: Session, mm: MemberMerchant, delta: int) -> MemberMerchant:
+    mm.points = mm.points + delta
     db.commit()
-    db.refresh(member)
-    return member
+    db.refresh(mm)
+    return mm
+
+
+def update_member_merchant(db: Session, mm: MemberMerchant, **kwargs) -> MemberMerchant:
+    for key, value in kwargs.items():
+        if value is not None:
+            setattr(mm, key, value)
+    db.commit()
+    db.refresh(mm)
+    return mm
